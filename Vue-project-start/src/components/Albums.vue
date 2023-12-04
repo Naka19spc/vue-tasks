@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import axios from 'axios'
+
 const albumData=ref([])
  onMounted(async() => {
     const albumInfo = await axios.get('https://jsonplaceholder.typicode.com/albums')
@@ -11,7 +12,8 @@ const albumData=ref([])
 
 <template>
 <li v-for= "item in albumData.slice(0,15)">
-{{item.userId}}{{ item.title }}
+    <Album :naka = 'item'/>
+
 </li>
 </template>
 
